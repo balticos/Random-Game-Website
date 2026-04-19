@@ -184,7 +184,7 @@ function drawGame() {
 const fullscreenBtn = document.getElementById('fullscreen-btn');
 if (fullscreenBtn) {
     fullscreenBtn.addEventListener('click', async () => {
-        // Toggle fullscreen on the game canvas.
+
         if (document.fullscreenElement) {
             await document.exitFullscreen?.();
             return;
