@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ping Pong Game</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      margin: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background: #0b3150;
+      font-family: Arial, sans-serif;
+    }
+
+    #game-container {
+      position: relative;
+      width: min(100%, 900px);
+      aspect-ratio: 2 / 1;
+      height: auto;
+      margin: 0 auto;
+      background-color: #0077b6;
+      border: 5px solid #fff;
+      border-radius: 10px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
+      overflow: hidden;
+    }
+
+    #game-container::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 4px;
+      height: 100%;
+      background-color: #fff;
+      transform: translateX(-50%);
+    }
+
+    #score {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      padding: 10px;
+      color: #fff;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    #player1-score,
+    #player2-score {
+      flex: 1;
+      text-align: center;
+    }
+
+    .paddle {
+      position: absolute;
+      width: 10px;
+      height: 100px;
+      background-color: #fff;
+      border-radius: 5px;
+    }
+
+    #paddle1 {
+      left: 10px;
+      top: 150px;
+    }
+
+    #paddle2 {
+      right: 10px;
+      top: 150px;
+    }
+
+    #ball {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background-color: #91eeff;
+      border-radius: 50%;
+      top: 190px;
+      left: 390px;
+    }
+  </style>
+</head>
+<body>
+  <div id="game-container">
+    <div id="score">
+      <div id="player1-score">0</div>
+      <div id="player2-score">0</div>
+    </div>
+    <div id="paddle1" class="paddle"></div>
+    <div id="paddle2" class="paddle"></div>
+    <div id="ball"></div>
+  </div>
+
+  <script src="pingpong_script.js"></script>
+</body>
+</html>
