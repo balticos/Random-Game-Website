@@ -159,7 +159,7 @@ function create(time) {
     }).setOrigin(0.5).setDepth(20).setVisible(false);
 
     pipeTimer = this.time.addEvent({
-        delay: 1300,
+        delay: 2600,
         loop: true,
         callback: spawnPipes,
         callbackScope: this
@@ -283,7 +283,7 @@ function spawnPipes() {
     const height = this.sys.game.config.height;
 
     gapCenter = Phaser.Math.Between(height * 0.27, height * 0.64);
-    gapSize   = height * 0.28;
+    gapSize   = height * 0.36;
 
     var gapTop = gapCenter - gapSize / 2;
     var gapBot = gapCenter + gapSize / 2;
