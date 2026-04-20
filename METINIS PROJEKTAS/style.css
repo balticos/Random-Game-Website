@@ -85,11 +85,11 @@ body {
 
 /* HANDS */
 #hands {
-  position: absolute;
-  bottom: 20px;
+  position: fixed;
+  bottom: -320px;
   left: 50%;
   transform: translateX(-50%);
-  width: 300px;
+  width: min(100vw, 1400px);
   height: auto;
   z-index: 10;
 }
