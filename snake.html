@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake žaidimas</title>
+    <link rel="stylesheet" href="images/snake_style.css">
+</head>
+<body>
+    <main class="layout">
+        <section class="side-panel">
+            <h2>Apie žaidimą</h2>
+            <p>
+                Rink obuolius, ilgink gyvatę ir venk atsitrenkti į sienas ar savo kūną.
+            </p>
+            <p>
+                Didink sudėtingumą, kad gyvatė judėtų greičiau ir už kiekvieną obuolį gautum daugiau taškų.
+            </p>
+        </section>
+
+        <section class="game-panel">
+            <canvas id="gameCanvas" width="600" height="400"></canvas>
+            <div class="difficulty">
+                <input id="dif-select" type="range" list="level" min="1" max="10" value="1">
+                <span id="dif-display"></span>
+            </div>
+        </section>
+
+        <section class="side-panel">
+            <h2>Valdymas</h2>
+            <p><strong>Rodyklė aukštyn:</strong> judėti aukštyn</p>
+            <p><strong>Rodyklė žemyn:</strong> judėti žemyn</p>
+            <p><strong>Rodyklė kairėn:</strong> judėti kairėn</p>
+            <p><strong>Rodyklė dešinėn:</strong> judėti dešinėn</p>
+            <p><strong>Pelės paspaudimas:</strong> pradėti arba pradėti iš naujo</p>
+        </section>
+    </main>
+    <script src="snake_script.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="lt">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ping Pong žaidimas</title>
+    <link rel="stylesheet" href="pingpong_style.css">
+</head>
+<body>
+    <main class="layout">
+        <section class="side-panel">
+            <h2>Apie žaidimą</h2>
+            <p>
+                Tai dviejų žaidėjų „Ping Pong“ žaidimas, kuriame tašką gauni, kai kamuoliukas praskrieja pro varžovo raketę.
+            </p>
+            <p>
+                Stenkis laiku atmušti kamuoliuką ir nepalikti savo krašto neapsaugoto.
+            </p>
+        </section>
+
+        <section class="game-panel">
+            <div id="game-container">
+                <div id="score">
+                    <div id="player1-score">0</div>
+                    <div id="player2-score">0</div>
+                </div>
+                <div id="paddle1" class="paddle"></div>
+                <div id="paddle2" class="paddle"></div>
+                <div id="ball"></div>
+            </div>
+        </section>
+
+        <section class="side-panel">
+            <h2>Valdymas</h2>
+            <p><strong>1 žaidėjas:</strong> W / S</p>
+            <p><strong>2 žaidėjas:</strong> Rodyklė aukštyn / rodyklė žemyn</p>
+            <p><strong>Tikslas:</strong> pelnyti daugiau taškų už varžovą</p>
+        </section>
+    </main>
+    <script src="pingpong_script.js"></script>
+</body>
+</html>
