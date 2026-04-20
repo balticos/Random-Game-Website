@@ -88,7 +88,7 @@ body {
 /* HANDS */
 #hands {
   position: fixed;
-  bottom: -3600px;
+  bottom: -330px;
   left: 50%;
   transform: translateX(-50%);
   width: min(100vw, 1400px);
