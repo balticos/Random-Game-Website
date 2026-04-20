@@ -1,64 +1,40 @@
 <!DOCTYPE html>
 <html lang="lt">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Snake Game</title>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    html,
-    body {
-      margin: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      background: #191457;
-      color: #fff;
-      font-family: Arial, sans-serif;
-    }
-
-    .snake-wrap {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 10px;
-      padding: 8px;
-    }
-
-    canvas {
-      width: min(92vmin, 100%);
-      aspect-ratio: 1 / 1;
-      height: auto;
-      border: 2px solid #fff;
-      border-radius: 12px;
-      background: #2a2a7e;
-      display: block;
-    }
-
-    .difficulty {
-      display: flex;
-      gap: 10px;
-      align-items: center;
-      justify-content: center;
-      font-size: 14px;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake žaidimas</title>
+    <link rel="stylesheet" href="images/snake_style.css">
 </head>
 <body>
-  <main class="snake-wrap">
-    <canvas id="gameCanvas" width="500" height="500"></canvas>
-    <div class="difficulty">
-      <input id="dif-select" type="range" list="level" min="1" max="10" value="1">
-      <span id="dif-display"></span>
-    </div>
-  </main>
+    <main class="layout">
+        <section class="side-panel">
+            <h2>Apie žaidimą</h2>
+            <p>
+                Rink obuolius, ilgink gyvatę ir venk atsitrenkti į sienas ar savo kūną.
+            </p>
+            <p>
+                Didink sudėtingumą, kad gyvatė judėtų greičiau ir už kiekvieną obuolį gautum daugiau taškų.
+            </p>
+        </section>
 
-  <script src="snake_script.js"></script>
+        <section class="game-panel">
+            <canvas id="gameCanvas" width="600" height="400"></canvas>
+            <div class="difficulty">
+                <input id="dif-select" type="range" list="level" min="1" max="10" value="1">
+                <span id="dif-display"></span>
+            </div>
+        </section>
+
+        <section class="side-panel">
+            <h2>Valdymas</h2>
+            <p><strong>Rodyklė aukštyn:</strong> judėti aukštyn</p>
+            <p><strong>Rodyklė žemyn:</strong> judėti žemyn</p>
+            <p><strong>Rodyklė kairėn:</strong> judėti kairėn</p>
+            <p><strong>Rodyklė dešinėn:</strong> judėti dešinėn</p>
+            <p><strong>Pelės paspaudimas:</strong> pradėti arba pradėti iš naujo</p>
+        </section>
+    </main>
+    <script src="snake_script.js"></script>
 </body>
 </html>
