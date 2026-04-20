@@ -97,9 +97,9 @@ body {
 /* SNAKE */
 #snake {
   position: absolute;
-  bottom: 130px;
-  left: 20px;
-  width: 140px;
+  bottom: -90px;
+  left: -31%;
+  width: 70%;
   height: auto;
   z-index: 10;
 }
@@ -107,9 +107,9 @@ body {
 /* BIRD */
 #bird {
   position: absolute;
-  top: 30px;
-  right: 50px;
-  width: 80px;
+  top: 1%;
+  right: -20%;
+  width: 60%;
   height: auto;
   z-index: 10;
 }
@@ -143,36 +143,36 @@ body {
 
 #bubble-top {
   position: absolute;
-  top: 50px;
-  left: 450px;
-  width: 50px;
+  top: 10%;
+  left: 20%;
+  width: 2%;
   height: auto;
   z-index: 5;
 }
 
 #bubble-right {
   position: absolute;
-  top: 30px;
-  right: 80px;
-  width: 80px;
+  bottom: 59%;
+  left: 65%;
+  width: 50%;
   height: auto;
   z-index: 5;
 }
 
 #bubble-racket {
   position: absolute;
-  top: 200px;
-  left: 180px;
-  width: 140px;
+  top: 10%;
+  left: -10%;
+  width: 50%;
   height: auto;
   z-index: 5;
 }
 
 #bubble-bottom {
   position: absolute;
-  bottom: 200px;
-  left: 380px;
-  width: 70px;
+  top: 30%;
+  right: 40%;
+  width: 50%;
   height: auto;
   z-index: 5;
 }
