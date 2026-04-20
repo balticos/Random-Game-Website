@@ -1,46 +1,45 @@
 /*BASE*/
-img { 
-  position: absolute;  
-  display: block; 
-  user-select: none; 
-  pointer-events: none; 
-} 
+img {
+  position: absolute;
+  display: block;
+  user-select: none;
+  pointer-events: none;
+}
 
-*{ 
-  box-sizing: border-box; 
-} 
+*{
+  box-sizing: border-box;
+}
 
-html, body { 
-  margin: 0px; 
-  padding: 0; 
-  width: 100%; 
-  height: 100%; 
+html, body {
+  margin: 0px;
+  padding: 0;
+  width: 100%;
+  height: 100%;
   background-color: #e8f6ff;
-} 
+}
 
-body { 
-  overflow: hidden; 
-  font-family: Arial, sans-serif; 
-  
-} 
+body {
+  overflow: hidden;
+  font-family: Arial, sans-serif;
+}
 
-/* BACKGROUND */ 
+/* BACKGROUND */
 body {
   margin: 0;
   background: #e8f6ff;
   overflow: hidden;
 }
 
-/* MENU UI */ 
-#menu-ui { 
-  position: absolute; 
-  width:100%; 
-  height: 100%; 
-  margin: 0 auto; 
-  overflow: visible; 
+/* MENU UI */
+#menu-ui {
+  position: absolute;
+  width:100%;
+  height: 100%;
+  margin: 0 auto;
+  overflow: visible;
   background-color: #e8f6ff;
-  }
-  
+}
+
 /* TITLE */
 #title {
   position: absolute;
@@ -79,16 +78,16 @@ body {
   z-index: 10;
 }
 
-#list { 
-  position: relative; 
+#list {
+  position: relative;
   width: 280px;
   height: auto;
-} 
+}
 
 /* HANDS */
 #hands {
   position: fixed;
-  bottom: -320px;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
   width: min(100vw, 1400px);
@@ -124,11 +123,11 @@ body {
   z-index: 10;
 }
 
-#credits img { 
-  position: relative; 
+#credits img {
+  position: relative;
   width: 350px;
   height: auto;
-} 
+}
 
 /* WAVE */
 #wave {
@@ -141,8 +140,7 @@ body {
   z-index: 1;
 }
 
-/* BUBBLES */ 
-
+/* BUBBLES */
 #bubble-top {
   position: absolute;
   top: 10%;
