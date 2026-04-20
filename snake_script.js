@@ -4,6 +4,7 @@ const ctx = canvas.getContext('2d');
 const difSelect = document.querySelector("#dif-select");
 const difDisplay = document.querySelector("#dif-display");
 const gridSize = 10;
+const blockInset = 1;
 let snake = [{ x: 160, y: 160 }, { x: 150, y: 160 }, { x: 140, y: 160 }];
 let food = { x: 420, y: 220 };
 let direction = { x: gridSize, y: 0 };
@@ -12,29 +13,6 @@ let gameInterval;
 let isGameOver = false;
 let gameStarted = false;
 let dif = difSelect.value;
-const headImage = new Image();
-headImage.src = 'images/face_snake.png';
-const tailImage = new Image();
-tailImage.src = 'images/tail_snake.png';
-
-function getRotationFromVector(vectorX, vectorY) {
-    if (vectorX > 0) return 0;
-    if (vectorX < 0) return Math.PI;
-    if (vectorY > 0) return Math.PI / 2;
-    if (vectorY < 0) return -Math.PI / 2;
-    return 0;
-}
-
-function drawRotatedImage(image, x, y, angle) {
-    const centerX = x + gridSize / 2;
-    const centerY = y + gridSize / 2;
-
-    ctx.save();
-    ctx.translate(centerX, centerY);
-    ctx.rotate(angle);
-    ctx.drawImage(image, -gridSize / 2, -gridSize / 2, gridSize, gridSize);
-    ctx.restore();
-}
 
 function playEatSound() {
     let audio = new Audio('snake_eat.ogg');
@@ -136,28 +114,13 @@ function drawGame() {
 
     snake.forEach((segment, index) => {
         const isHead = index === 0;
-
-        if (isHead && headImage.complete && headImage.naturalWidth > 0) {
-            const headAngle = getRotationFromVector(direction.x, direction.y);
-            drawRotatedImage(headImage, segment.x, segment.y, headAngle);
-            return;
-        }
-
-        if (!isHead && tailImage.complete && tailImage.naturalWidth > 0) {
-            const prevSegment = snake[index - 1];
-            const segmentVectorX = prevSegment ? segment.x - prevSegment.x : -direction.x;
-            const segmentVectorY = prevSegment ? segment.y - prevSegment.y : -direction.y;
-            const segmentAngle = getRotationFromVector(segmentVectorX, segmentVectorY);
-            drawRotatedImage(tailImage, segment.x, segment.y, segmentAngle);
-            return;
-        }
-
-        if (isHead) {
-            ctx.fillStyle = '#6867d6';
-        } else {
-            ctx.fillStyle = '#b8b7e6';
-        }
-        ctx.fillRect(segment.x, segment.y, gridSize, gridSize);
+        ctx.fillStyle = isHead ? '#1f9e2c' : '#33c442';
+        ctx.fillRect(
+            segment.x + blockInset,
+            segment.y + blockInset,
+            gridSize - blockInset * 2,
+            gridSize - blockInset * 2
+        );
     });
 
     ctx.fillStyle = 'red';
