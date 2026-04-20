@@ -43,7 +43,7 @@ body {
 /* TITLE */
 #title {
   position: absolute;
-  top: 100px;
+  top: 280px;
   left: 50%;
   transform: translateX(-50%);
   width: 600px;
@@ -54,7 +54,7 @@ body {
 /* PLAY BUTTON */
 #play-button {
   position: absolute;
-  top: 280px;
+  top: 400px;
   left: 50%;
   transform: translateX(-50%);
   pointer-events: auto;
