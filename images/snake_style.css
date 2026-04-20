@@ -50,6 +50,8 @@ canvas {
     border: 2px solid white; 
     border-radius: 12px;
     background-image: url(tile_snake.png);
+    width: min(95vmin, 760px);
+    height: auto;
     display: block;
 }
 
