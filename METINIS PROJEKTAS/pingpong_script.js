@@ -7,9 +7,11 @@ const player2ScoreDisplay = document.getElementById('player2-score');
 const paddleHeight = 100;
 const ballSize = 20;
 const paddleOffset = 10;
-const paddleSpeed = 2;
-const aiPaddleSpeed = 0.8;
+const paddleSpeed = 8.5;
+const aiPaddleSpeed = 6.5;
 const aiReactionPadding = 34;
+const targetFrameMs = 1000 / 60;
+let lastFrameTime = null;
 
 function gameWidth() {
     return gameContainer.clientWidth;
@@ -47,15 +49,15 @@ let paddle1Y = Math.max(0, (gameHeight() - paddleHeight) / 2);
 let paddle2Y = Math.max(0, (gameHeight() - paddleHeight) / 2);
 let ballX = ballResetX();
 let ballY = ballResetY();
-const baseBallSpeed = 1.25;
+const baseBallSpeed = 8;
 let ballSpeedX = baseBallSpeed;
 let ballSpeedY = baseBallSpeed;
 let player1Score = 0;
 let player2Score = 0;
 
-function updateBall() {
-    ballX += ballSpeedX;
-    ballY += ballSpeedY;
+function updateBall(frameScale) {
+    ballX += ballSpeedX * frameScale;
+    ballY += ballSpeedY * frameScale;
 
     // Ball collision with top and bottom walls
     if (ballY <= 0 || ballY >= gameHeight() - ballSize) {
@@ -103,26 +105,33 @@ function resetBall() {
     ballSpeedY = Math.random() > 0.5 ? baseBallSpeed : -baseBallSpeed;
 }
 
-function gameLoop() {
+function gameLoop(timestamp) {
+    if (lastFrameTime === null) {
+        lastFrameTime = timestamp;
+    }
+    const deltaMs = Math.min(40, timestamp - lastFrameTime || targetFrameMs);
+    lastFrameTime = timestamp;
+    const frameScale = deltaMs / targetFrameMs;
+
     // Paddle 1 movement (W/S or arrow keys)
-    if (keysPressed.has('w') && paddle1Y > 0) paddle1Y -= paddleSpeed;
-    if (keysPressed.has('s') && paddle1Y < maxPaddleY()) paddle1Y += paddleSpeed;
-    if (keysPressed.has('ArrowUp') && paddle1Y > 0) paddle1Y -= paddleSpeed;
-    if (keysPressed.has('ArrowDown') && paddle1Y < maxPaddleY()) paddle1Y += paddleSpeed;
+    if (keysPressed.has('w') && paddle1Y > 0) paddle1Y -= paddleSpeed * frameScale;
+    if (keysPressed.has('s') && paddle1Y < maxPaddleY()) paddle1Y += paddleSpeed * frameScale;
+    if (keysPressed.has('ArrowUp') && paddle1Y > 0) paddle1Y -= paddleSpeed * frameScale;
+    if (keysPressed.has('ArrowDown') && paddle1Y < maxPaddleY()) paddle1Y += paddleSpeed * frameScale;
 
     // Paddle 2 AI: follow ball center with small dead zone.
     const targetY = ballY + ballSize / 2 - paddleHeight / 2;
     if (paddle2Y < targetY - aiReactionPadding) {
-        paddle2Y += aiPaddleSpeed;
+        paddle2Y += aiPaddleSpeed * frameScale;
     } else if (paddle2Y > targetY + aiReactionPadding) {
-        paddle2Y -= aiPaddleSpeed;
+        paddle2Y -= aiPaddleSpeed * frameScale;
     }
     paddle2Y = Math.max(0, Math.min(maxPaddleY(), paddle2Y));
 
     paddle1.style.top = `${paddle1Y}px`;
     paddle2.style.top = `${paddle2Y}px`;
 
-    updateBall();
+    updateBall(frameScale);
     requestAnimationFrame(gameLoop);
 }
 
